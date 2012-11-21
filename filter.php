@@ -100,7 +100,16 @@ class filter_youku extends moodle_text_filter {
             }
         }
 
-        // Return the embed code
-        return '<embed src="http://player.youku.com/player.php/sid/'.$matches[1].'/v.swf" allowFullScreen="true" quality="high" width="'.$w.'" height="'.$h.'" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>';
+        /// We use the object tag rather than the embed tag as it provides
+        /// better cross browser compatibility and html compliance
+        $embed = '<object
+                    type="application/x-shockwave-flash"
+                    data="http://player.youku.com/player.php/sid/'.$matches[1].'/v.swf"
+                    width="'.$w.'"
+                    height="'.$h.'"
+                    <param name="movie" value="http://player.youku.com/player.php/sid/'.$matches[1].'/v.swf">
+                  </object>';
+
+        return $embed;
     }
 }
