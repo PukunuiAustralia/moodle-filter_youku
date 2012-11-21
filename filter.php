@@ -88,15 +88,15 @@ class filter_youku extends moodle_text_filter {
      */
     private function callback(array $matches) {
         // Set some defaults for the dimensions
-        $h=400;
         $w=400;
+        $h=400;
 
         // Did any dimensions get passed as part of the URL?
         if (!empty($matches[2])) {
             preg_match("/d=([0-9]{1,3})x([0-9]{1,3})/", $matches[2], $dimensions);
             if (count($dimensions) == 3) {
-                $h = $dimensions[1];
-                $w = $dimensions[2];
+                $w = $dimensions[1];
+                $h = $dimensions[2];
             }
         }
 
