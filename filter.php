@@ -36,7 +36,7 @@ class filter_youku extends moodle_text_filter {
         // now this part has been left unfinished.
 
         // We should search only for links to youku
-        $search = "{<a.*?href=\".*?\.youku\.com\/.*?id_(.*?)\.html.*?[\?|\&]?(d=\d+x\d+)?.*?<\/a>}";
+        $search = "{<a.*?href=\".*?\.youku\.com\/.*?id_([[:alnum:]]*)\.html.*?[\?]?(d=[[:digit:]]+x[[:digit:]]+)?.*?<\/a>}";
         $text = preg_replace_callback($search, array($this, 'callback'), $text);
 
         return $text;
