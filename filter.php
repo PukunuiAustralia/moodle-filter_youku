@@ -83,7 +83,7 @@ class filter_youku extends moodle_text_filter {
     /**
      * Replace youku links with embed code
      *
-     * @param string $text
+     * @param array $matches  results from preg_match
      * @return void
      */
     private function callback(array $matches) {
